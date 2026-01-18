@@ -1,29 +1,79 @@
 export default function StartingSoon() {
   return (
-    <section className="startingSoon">
-      <div className="startingSoon__card">
-        <div className="startingSoon__top">
-          <span className="startingSoon__pill">● LIVE SOON</span>
-          <span className="startingSoon__meta">Portfolio Stream</span>
+    <main className="overlay">
+      {/* Background atmosphere layers */}
+      <div className="overlay__bg" aria-hidden="true" />
+      <div className="overlay__vignette" aria-hidden="true" />
+      <div className="overlay__noise" aria-hidden="true" />
+      <div className="overlay__scanlines" aria-hidden="true" />
+
+      {/* Big heart glow (part of the scene, not a "shape in a card") */}
+      <div className="overlay__heart" aria-hidden="true" />
+
+      {/* Frame = what makes it feel like a stream pack */}
+      <section className="frame" aria-label="Starting soon overlay frame">
+        {/* Corner brackets */}
+        <span className="frame__corner frame__corner--tl" aria-hidden="true" />
+        <span className="frame__corner frame__corner--tr" aria-hidden="true" />
+        <span className="frame__corner frame__corner--bl" aria-hidden="true" />
+        <span className="frame__corner frame__corner--br" aria-hidden="true" />
+
+        {/* Top HUD row */}
+        <header className="hud">
+          <div className="hud__left">
+            <span className="hud__pill">
+              <span className="hud__dot" aria-hidden="true" />
+              LIVE SOON
+            </span>
+
+            <span className="hud__label">Portfolio Stream</span>
+          </div>
+
+          <div className="hud__right">
+            <span className="hud__tiny">SYS</span>
+            <span className="hud__tiny">READY</span>
+            <span className="hud__tiny">v1.0</span>
+          </div>
+        </header>
+
+        {/* Main content block */}
+        <div className="content">
+          <h1 className="content__title">Starting Soon</h1>
+
+          <p className="content__subtitle">
+            Warming up the vibes… grab a snack 🍷✨
+          </p>
+
+          {/* Timer + status */}
+          <div className="status">
+            <div className="timer" aria-label="Countdown timer">
+              <span className="timer__digits">00:00:00</span>
+            </div>
+
+            <div className="status__meta">
+              <span className="status__chip">audio: ok</span>
+              <span className="status__chip">video: ok</span>
+              <span className="status__chip">chat: soon</span>
+            </div>
+          </div>
+
+          {/* CTA */}
+          <button className="cta" type="button">
+            Enter Stream
+          </button>
+
+          <p className="hint">
+            (This button will scroll to the main site soon 👀)
+          </p>
         </div>
 
-        <h1 className="startingSoon__title">Starting Soon</h1>
-        <p className="startingSoon__subtitle">
-          Warming up the vibes… grab a snack 🍷✨
-        </p>
-
-        <div className="startingSoon__timer" aria-label="Countdown timer">
-          <span>00</span>:<span>00</span>:<span>00</span>
-        </div>
-
-        <button className="startingSoon__button" type="button">
-          Enter Stream
-        </button>
-
-        <p className="startingSoon__hint">
-          (This button will scroll to the main site soon 👀)
-        </p>
-      </div>
-    </section>
+        {/* Bottom “overlay footer line” */}
+        <footer className="footer">
+          <span className="footer__text">Press ENTER to continue</span>
+          <span className="footer__divider" aria-hidden="true" />
+          <span className="footer__text">Loading modules…</span>
+        </footer>
+      </section>
+    </main>
   );
 }
