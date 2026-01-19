@@ -7,10 +7,18 @@ export default function StartingSoon() {
       <div className="overlay__noise" aria-hidden="true" />
       <div className="overlay__scanlines" aria-hidden="true" />
 
-      {/* Big heart glow (part of the scene, not a "shape in a card") */}
-      <div className="overlay__heart" aria-hidden="true" />
+      {/* Floating mini hearts (MUST be outside frame so they sit in the scene) */}
+      <div className="overlay__heart" aria-hidden="true">
+        <span className="heart heart--1" />
+        <span className="heart heart--2" />
+        <span className="heart heart--3" />
+        <span className="heart heart--4" />
+        <span className="heart heart--5" />
+        <span className="heart heart--6" />
+        <span className="heart heart--7" />
+      </div>
 
-      {/* Frame = what makes it feel like a stream pack */}
+      {/* Frame = stream overlay */}
       <section className="frame" aria-label="Starting soon overlay frame">
         {/* Corner brackets */}
         <span className="frame__corner frame__corner--tl" aria-hidden="true" />
@@ -25,7 +33,6 @@ export default function StartingSoon() {
               <span className="hud__dot" aria-hidden="true" />
               LIVE SOON
             </span>
-
             <span className="hud__label">Portfolio Stream</span>
           </div>
 

@@ -138,56 +138,93 @@ body {
    HEART HERO (big + creamy + NOT "three circles")
    We use clip-path so it reads as ONE shape.
    ========================================================= */
+/* =========================================================
+   FLOATING MINI HEARTS (ACTUAL HEART SHAPES)
+   ========================================================= */
+
 .overlay__heart {
   position: absolute;
   inset: 0;
   z-index: 4;
   pointer-events: none;
-
-  display: grid;
-  place-items: center;
 }
 
-/* The heart itself */
-.overlay__heart::before {
-  content: "";
-  width: clamp(16rem, 38vw, 28rem);
+/* Shared heart base */
+.heart {
+  position: absolute;
+  width: clamp(1rem, 1.6vw, 1.6rem);
   aspect-ratio: 1 / 1;
-  border-radius: 2.5rem;
+  opacity: 0.7;
 
-  /* Cream glow with warm tint */
-  background: radial-gradient(
-    circle at 35% 35%,
-    rgba(245, 239, 230, 0.55),
-    rgba(245, 239, 230, 0.18) 45%,
-    rgba(138, 15, 35, 0.12) 70%,
-    rgba(0, 0, 0, 0) 100%
-  );
+  /* soft glow */
+  filter: blur(0.2rem);
+  background: rgba(245, 239, 230, 0.25);
 
-  /* Heart silhouette */
+  /* heart shape */
   clip-path: path(
     "M 50 85 C 15 60, 5 35, 25 20 C 38 10, 48 20, 50 28 C 52 20, 62 10, 75 20 C 95 35, 85 60, 50 85 Z"
   );
 
-  filter: blur(18px);
-  opacity: 0.95;
-
-  /* Keyframes = slow pulse + tiny float (ONLY the heart moves) */
-  animation: heartFloat 6s ease-in-out infinite;
+  animation: floatHeart 6s ease-in-out infinite;
 }
 
-@keyframes heartFloat {
+/* Different sizes + positions + speeds */
+.heart--1 {
+  top: 22%;
+  left: 48%;
+  width: clamp(1.2rem, 2vw, 2rem);
+  opacity: 0.45;
+  animation-duration: 7s;
+}
+
+.heart--2 {
+  top: 35%;
+  left: 62%;
+  width: clamp(0.9rem, 1.4vw, 1.4rem);
+  opacity: 0.6;
+  animation-duration: 6s;
+  animation-delay: -1s;
+}
+
+.heart--3 {
+  top: 55%;
+  left: 42%;
+  width: clamp(0.8rem, 1.2vw, 1.2rem);
+  opacity: 0.55;
+  animation-duration: 8s;
+  animation-delay: -2.5s;
+}
+
+.heart--4 {
+  top: 28%;
+  left: 72%;
+  width: clamp(0.7rem, 1.1vw, 1.1rem);
+  opacity: 0.35;
+  animation-duration: 9s;
+  animation-delay: -3s;
+}
+
+.heart--5 {
+  top: 68%;
+  left: 58%;
+  width: clamp(0.85rem, 1.3vw, 1.3rem);
+  opacity: 0.4;
+  animation-duration: 7.5s;
+  animation-delay: -1.8s;
+}
+
+@keyframes floatHeart {
   0% {
-    transform: translateY(0rem) scale(0.98);
-    opacity: 0.78;
+    transform: translateY(0rem) scale(1);
+    opacity: 0.35;
   }
   50% {
-    transform: translateY(-0.6rem) scale(1.04);
-    opacity: 0.95;
+    transform: translateY(-0.9rem) scale(1.08);
+    opacity: 0.75;
   }
   100% {
-    transform: translateY(0rem) scale(0.98);
-    opacity: 0.78;
+    transform: translateY(0rem) scale(1);
+    opacity: 0.35;
   }
 }
 
@@ -434,7 +471,12 @@ body {
 
 .cta:hover {
   transform: translateY(-0.12rem);
-  opacity: 0.98;
+  opacity: 1;
+
+  box-shadow:
+    0 1.5rem 3rem rgba(0, 0, 0, 0.45),
+    0 0 2.8rem rgba(138, 15, 35, 0.35),
+    0 0 1.2rem rgba(245, 239, 230, 0.08);
 }
 
 .cta:active {
