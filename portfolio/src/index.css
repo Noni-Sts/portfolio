@@ -204,18 +204,17 @@ body {
   position: relative;
   z-index: 10;
 
-  width: min(64rem, 100%);
-  padding: clamp(1.25rem, 3vw, 2.25rem);
+  /* fills the screen like an overlay */
+  width: min(96rem, 100%);
+  min-height: min(46rem, 88vh);
+
+  padding: clamp(1.5rem, 3vw, 3rem);
 
   border-radius: clamp(1.25rem, 2vw, 2rem);
 
-  /* Light transparent frame surface */
-  background: rgba(12, 12, 14, 0.42);
-
-  /* Frame lines */
+  background: rgba(12, 12, 14, 0.35);
   border: 1px solid var(--line-soft);
 
-  /* “Overlay pack” depth */
   box-shadow:
     0 1.5rem 4rem rgba(0, 0, 0, 0.55),
     inset 0 0 0 1px rgba(245, 239, 230, 0.06);
@@ -331,7 +330,12 @@ body {
    CONTENT
    ========================================================= */
 .content {
-  max-width: 44rem;
+  max-width: 46rem;
+  margin: 0 auto;
+
+  display: grid;
+  justify-items: center;
+  text-align: center;
 }
 
 .content__title {
