@@ -8,7 +8,7 @@ export default function StartingSoon() {
       <div className="overlay__scanlines" aria-hidden="true" />
 
       {/* Floating mini hearts (MUST be outside frame so they sit in the scene) */}
-      <div className="overlay__heart" aria-hidden="true">
+      <div className="overlay__hearts" aria-hidden="true">
         <span className="heart heart--1" />
         <span className="heart heart--2" />
         <span className="heart heart--3" />
