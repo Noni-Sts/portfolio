@@ -48,7 +48,7 @@ export default function StartingSoon() {
           <h1 className="content__title">Starting Soon</h1>
 
           <p className="content__subtitle">
-            Warming up the vibes… grab a snack 🍷✨
+            Warming up the site… keep your notepad open for contact details
           </p>
 
           {/* Timer + status */}
