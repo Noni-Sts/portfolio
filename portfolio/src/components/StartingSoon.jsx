@@ -1,4 +1,4 @@
-export default function StartingSoon() {
+export default function StartingSoon({ onEnter }) {
   return (
     <main className="overlay">
       {/* Background atmosphere layers */}
@@ -65,7 +65,7 @@ export default function StartingSoon() {
           </div>
 
           {/* CTA */}
-          <button className="cta" type="button">
+          <button className="cta" type="button" onClick={onEnter}>
             Enter Stream
           </button>
 

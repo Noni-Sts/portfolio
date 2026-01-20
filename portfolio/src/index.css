@@ -464,6 +464,7 @@ body {
   /* tabular numbers so 0/0/0 don't shift */
   font-variant-numeric: tabular-nums;
   font-feature-settings: "tnum" 1;
+  white-space: nowrap; /* stops it breaking into 2 lines */
 
   /* Spacing fix */
   letter-spacing: 0.26em;
@@ -572,6 +573,23 @@ body {
   background: rgba(245, 239, 230, 0.12);
 }
 
+.site--enter {
+  animation: siteEnter 420ms ease forwards;
+}
+
+@keyframes siteEnter {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.995);
+    filter: blur(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
 /* =========================================================
    MOBILE TWEAKS
    ========================================================= */
@@ -586,5 +604,11 @@ body {
 
   .cta {
     width: 100%;
+  }
+}
+@media (max-width: 35rem) {
+  .timer__digits {
+    letter-spacing: 0.18em; /* smaller spacing so it fits */
+    font-size: clamp(2.2rem, 9vw, 3rem);
   }
 }
