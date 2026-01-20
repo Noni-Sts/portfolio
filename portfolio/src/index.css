@@ -446,6 +446,9 @@ body {
   width: min(70rem, 92%);
   padding: clamp(1.4rem, 2vw, 2rem) clamp(2rem, 4vw, 3.5rem);
   border-radius: 1.8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   box-shadow:
     0 0 0 1px rgba(245, 239, 230, 0.05),
@@ -454,13 +457,17 @@ body {
 }
 
 .timer__digits {
-  display: block;
   text-align: center;
-  width: 100%;
-
   font-family: var(--font-heading);
   font-size: clamp(3.2rem, 5vw, 4.4rem);
-  letter-spacing: 0.32em;
+
+  /* tabular numbers so 0/0/0 don't shift */
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1;
+
+  /* Spacing fix */
+  letter-spacing: 0.26em;
+  padding-left: 0.32em; /* balances the extra spacing - digits lean too far left or right without this */
 
   color: rgba(245, 239, 230, 0.95);
 
