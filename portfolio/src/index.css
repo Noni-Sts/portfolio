@@ -612,3 +612,81 @@ body {
     font-size: clamp(2.2rem, 9vw, 3rem);
   }
 }
+
+/* =========================================================
+  HOME - ACTUAL PORTOLIO SITE CSS
+   ========================================================= */
+
+/* =========================================================
+   MAIN SITE (HOME) — streamer-like scaffold
+   ========================================================= */
+
+.site {
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--cream);
+}
+
+/* same vibe as overlay bg but calmer */
+.site__bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      70rem 40rem at 20% 25%,
+      rgba(138, 15, 35, 0.35),
+      transparent 60%
+    ),
+    radial-gradient(
+      65rem 38rem at 80% 30%,
+      rgba(91, 10, 22, 0.45),
+      transparent 62%
+    ),
+    radial-gradient(
+      55rem 35rem at 55% 85%,
+      rgba(245, 239, 230, 0.04),
+      transparent 65%
+    ),
+    linear-gradient(180deg, rgba(10, 10, 12, 1), rgba(10, 10, 12, 1));
+}
+
+.site__wrap {
+  position: relative;
+  z-index: 1;
+
+  width: min(72rem, 100%);
+  margin: 0 auto;
+  padding: clamp(2rem, 4vw, 4rem) clamp(1.25rem, 3vw, 2.5rem);
+
+  display: grid;
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.panel {
+  border-radius: 1.5rem;
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+
+  background: rgba(12, 12, 14, 0.35);
+  border: 1px solid rgba(245, 239, 230, 0.08);
+
+  box-shadow:
+    0 1.2rem 3rem rgba(0, 0, 0, 0.55),
+    inset 0 0 0 1px rgba(245, 239, 230, 0.04);
+}
+
+.panel__title {
+  margin: 0 0 0.6rem;
+  font-family: var(--font-heading);
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  letter-spacing: -0.02em;
+}
+
+.panel__text {
+  margin: 0;
+  color: rgba(170, 170, 182, 0.9);
+  max-width: 60ch;
+  line-height: 1.6;
+}

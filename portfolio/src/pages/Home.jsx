@@ -5,11 +5,15 @@ import Contact from "../sections/Contact";
 
 export default function Home() {
   return (
-    <main>
-      <Hero />
-      <About />
-      <Projects />
-      <Contact />
+    <main className="site">
+      <div className="site__bg" aria-hidden="true" />
+
+      <div className="site__wrap">
+        <Hero />
+        <About />
+        <Projects />
+        <Contact />
+      </div>
     </main>
   );
 }
