@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import StartingSoon from "./components/StartingSoon";
-import Home from "./Home";
+import StartingSoon from "./pages/StartingSoon";
+import Home from "./pages/Home";
 
 export default function App() {
   const [view, setView] = useState(getViewFromHash());
