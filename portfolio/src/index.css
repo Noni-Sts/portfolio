@@ -628,36 +628,62 @@ body {
   padding: clamp(1rem, 2vw, 2rem);
   color: var(--text);
 
-  display: grid;
-  gap: clamp(1rem, 2vw, 1.4rem);
+  /* IMPORTANT */
+  display: flex;
+  justify-content: center;
+}
+.home::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
 
-  grid-template-columns: 1fr minmax(18rem, 22rem);
-  grid-template-rows: 1fr auto;
-
-  grid-template-areas:
-    "stream chat"
-    "widgets chat";
-
-  align-items: stretch;
+  background:
+    radial-gradient(
+      70rem 45rem at 20% 15%,
+      rgba(245, 239, 230, 0.12),
+      transparent 60%
+    ),
+    radial-gradient(
+      60rem 40rem at 85% 30%,
+      rgba(245, 239, 230, 0.08),
+      transparent 60%
+    ),
+    radial-gradient(
+      60rem 40rem at 50% 85%,
+      rgba(138, 15, 35, 0.28),
+      transparent 65%
+    );
 }
 
-.home {
-  position: relative;
-  min-height: 100svh;
-  padding: clamp(1rem, 2vw, 2rem);
-  color: var(--text);
+/*Layout*/
 
+.layout {
+  width: 100%;
+  height: calc(100svh - 4rem);
+}
+.layout {
   display: grid;
-  gap: clamp(1rem, 2vw, 1.4rem);
-
-  grid-template-columns: 1fr minmax(18rem, 22rem);
+  grid-template-columns: 1fr minmax(20rem, 24rem);
   grid-template-rows: 1fr auto;
-
-  grid-template-areas:
-    "stream chat"
-    "widgets chat";
-
+  gap: 1.2rem;
   align-items: stretch;
+}
+.layout__main {
+  grid-column: 1;
+  grid-row: 1;
+  position: relative;
+}
+
+.home__widgets {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.layout__chat {
+  grid-column: 2;
+  grid-row: 1 / span 2;
 }
 
 /* Panel base */
@@ -699,8 +725,11 @@ body {
 
 /* Stream panel should feel BIG */
 .home__stream .panel {
-  height: 100%;
-  min-height: 0;
+  min-height: 72vh;
+}
+
+.home__widgets .panel {
+  padding: 0.8rem;
 }
 
 .home__chat .panel {
@@ -714,17 +743,17 @@ body {
   top: 1rem;
   right: 1rem;
 
-  width: clamp(10rem, 18vw, 14rem);
+  width: clamp(11rem, 18vw, 15rem);
   aspect-ratio: 16 / 10;
 
   border-radius: 1rem;
   overflow: hidden;
 
-  background: rgba(12, 12, 14, 0.6);
-  border: 1px solid rgba(245, 239, 230, 0.14);
+  background: rgba(12, 12, 14, 0.65);
+  border: 1px solid rgba(245, 239, 230, 0.16);
 
   box-shadow:
-    0 0 0 1px rgba(245, 239, 230, 0.04),
+    0 0 0 1px rgba(245, 239, 230, 0.05),
     0 1.2rem 3rem rgba(0, 0, 0, 0.55);
 }
 
