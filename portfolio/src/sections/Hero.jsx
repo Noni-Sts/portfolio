@@ -1,8 +1,12 @@
 export default function Hero() {
   return (
-    <section className="panel hero" id="top">
+    <section className="hero" id="top">
       <div className="hero__hud">
-        <span className="hero__pill">● ONLINE</span>
+        <span className="hero__pill" aria-label="Online status">
+          <span className="hero__dot" aria-hidden="true" />
+          ONLINE
+        </span>
+
         <span className="hero__tag">Frontend Dev • Career Changer</span>
       </div>
 
