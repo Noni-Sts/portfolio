@@ -23,6 +23,12 @@
   /* Spacing scale */
   --r: 1rem; /* base unit for spacing */
   --radius: 1.25rem;
+
+  --panel: rgba(18, 18, 22, 0.55); /* was too dark */
+  --panel-2: rgba(18, 18, 22, 0.35);
+  --cream-glow: rgba(245, 239, 230, 0.08); /* soft light haze */
+  --text: rgba(245, 239, 230, 0.92);
+  --text-muted: rgba(245, 239, 230, 0.68);
 }
 
 /* =========================================================
@@ -618,43 +624,46 @@ body {
    ========================================================= */
 
 .home {
+  position: relative;
   min-height: 100svh;
-  padding: clamp(1rem, 3vw, 2.5rem);
-  display: grid;
-  gap: clamp(1rem, 2vw, 1.5rem);
-
-  /* Twitch layout grid */
-  grid-template-columns: 1fr minmax(18rem, 22rem);
-  grid-template-rows: 1fr auto;
-
-  grid-template-areas:
-    "stream webcam"
-    "stream chat"
-    "widgets chat";
+  padding: clamp(1rem, 2vw, 2rem);
+  color: var(--text);
 }
 
-/* Areas */
-.home__stream {
-  grid-area: stream;
+/* this is what lifts the darkness */
+.home::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+
+  background:
+    radial-gradient(
+      60rem 40rem at 25% 20%,
+      rgba(245, 239, 230, 0.09),
+      transparent 60%
+    ),
+    radial-gradient(
+      50rem 30rem at 80% 30%,
+      rgba(245, 239, 230, 0.06),
+      transparent 60%
+    ),
+    radial-gradient(
+      55rem 35rem at 50% 80%,
+      rgba(138, 15, 35, 0.22),
+      transparent 65%
+    );
 }
 
-.home__webcam {
-  grid-area: webcam;
-}
-
-.home__chat {
-  grid-area: chat;
-}
-
-.home__widgets {
-  grid-area: widgets;
+.home > * {
+  position: relative;
+  z-index: 1;
 }
 
 /* Panel base */
 .panel {
-  height: 100%;
   border-radius: 1.4rem;
-
   background: rgba(12, 12, 14, 0.35);
   border: 1px solid rgba(245, 239, 230, 0.08);
 
@@ -694,37 +703,58 @@ body {
   min-height: 60vh;
 }
 
-/* Webcam placeholder */
-.webcam__placeholder {
+.layout {
   display: grid;
-  place-items: center;
-  text-align: center;
-  gap: 0.75rem;
-  min-height: 10rem;
+  grid-template-columns: 1fr minmax(18rem, 22rem);
+  gap: clamp(1rem, 2vw, 1.4rem);
+  align-items: start;
+
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-.webcam__avatar {
-  width: 4rem;
-  height: 4rem;
+/* main stream panel */
+.layout__main {
+  position: relative;
+}
+
+/* chat column */
+.layout__chat .panel {
+  min-height: 60vh;
+}
+/* floating webcam */
+.webcamFloat {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+
+  width: clamp(10rem, 18vw, 14rem);
+  aspect-ratio: 16 / 10;
+
+  border-radius: 1rem;
+  overflow: hidden;
+
+  background: rgba(12, 12, 14, 0.6);
+  border: 1px solid rgba(245, 239, 230, 0.14);
+
+  box-shadow:
+    0 0 0 1px rgba(245, 239, 230, 0.04),
+    0 1.2rem 3rem rgba(0, 0, 0, 0.55);
+}
+
+.webcamFloat__label {
+  position: absolute;
+  top: 0.6rem;
+  left: 0.6rem;
+
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  padding: 0.35rem 0.6rem;
   border-radius: 999px;
 
-  display: grid;
-  place-items: center;
-
-  background: rgba(245, 239, 230, 0.06);
-  border: 1px solid rgba(245, 239, 230, 0.12);
-
-  font-family: var(--font-heading);
-  font-weight: 800;
-  letter-spacing: 0.06em;
-
-  color: rgba(245, 239, 230, 0.92);
-}
-
-.webcam__text {
-  margin: 0;
-  color: rgba(170, 170, 182, 0.85);
-  font-size: 0.9rem;
+  color: rgba(245, 239, 230, 0.85);
+  background: rgba(138, 15, 35, 0.22);
+  border: 1px solid rgba(138, 15, 35, 0.35);
 }
 
 /* Widgets */

@@ -8,59 +8,66 @@ import Panel from "../components/Panel.jsx";
 export default function Home() {
   return (
     <main className="home">
-      {/* Main stream screen */}
-      <section className="home__stream">
-        <Panel title="LIVE PORTFOLIO">
-          <Hero />
-        </Panel>
-      </section>
+      <div className="layout">
+        {/* LEFT SIDE: stream + widgets */}
+        <div className="layout__main">
+          {/* Main stream screen */}
+          <section className="home__stream">
+            <Panel title="LIVE PORTFOLIO">
+              <Hero />
+            </Panel>
+          </section>
 
-      {/* Webcam box */}
-      <aside className="home__webcam">
-        <Panel title="WEBCAM">
-          <div className="webcam__placeholder">
-            <div className="webcam__avatar">NS</div>
-            <p className="webcam__text">streamer mode: on</p>
+          {/* FLOATING webcam INSIDE stream area */}
+          <div className="webcamFloat">
+            <span className="webcamFloat__label">WEBCAM</span>
+
+            <div className="webcam__placeholder">
+              <div className="webcam__avatar">NS</div>
+              <p className="webcam__text">streamer mode: on</p>
+            </div>
           </div>
-        </Panel>
-      </aside>
 
-      {/* Chat box */}
-      <aside className="home__chat">
-        <Panel title="JOIN CHAT">
-          <About />
-        </Panel>
-      </aside>
+          {/* Bottom widgets */}
+          <footer className="home__widgets">
+            <Panel>
+              <div className="widgets">
+                <a className="widget" href="#projects">
+                  Projects
+                </a>
+                <a className="widget" href="#contact">
+                  Contact
+                </a>
+                <a
+                  className="widget"
+                  href="https://github.com/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  GitHub
+                </a>
+                <a
+                  className="widget"
+                  href="https://linkedin.com/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  LinkedIn
+                </a>
+              </div>
+            </Panel>
+          </footer>
+        </div>
 
-      {/* Bottom widgets */}
-      <footer className="home__widgets">
-        <Panel>
-          <div className="widgets">
-            <a className="widget" href="#projects">
-              Projects
-            </a>
-            <a className="widget" href="#contact">
-              Contact
-            </a>
-            <a
-              className="widget"
-              href="https://github.com/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              GitHub
-            </a>
-            <a
-              className="widget"
-              href="https://linkedin.com/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              LinkedIn
-            </a>
-          </div>
-        </Panel>
-      </footer>
+        {/* RIGHT SIDE: chat */}
+        <aside className="layout__chat">
+          <section className="home__chat">
+            <Panel title="JOIN CHAT">
+              <About />
+            </Panel>
+          </section>
+        </aside>
+      </div>
 
       {/* Hidden sections for later scrolling (optional) */}
       <div className="home__sections">
