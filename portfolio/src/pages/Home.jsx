@@ -8,77 +8,51 @@ import Panel from "../components/Panel.jsx";
 export default function Home() {
   return (
     <main className="home">
-      <div className="layout">
-        {/* LEFT SIDE: stream + widgets */}
-        <div className="layout__main">
-          {/* Main stream screen */}
-          <section className="home__stream">
-            <Panel title="LIVE PORTFOLIO">
-              <Hero />
-            </Panel>
-          </section>
+      {/* MAIN STREAM */}
+      <section className="stream">
+        <header className="stream__header">
+          <span className="pill live">● ONLINE</span>
+          <span className="stream__role">Frontend Dev • Career Changer</span>
+        </header>
 
-          {/* FLOATING webcam INSIDE stream area */}
-          <div className="webcamFloat">
-            <span className="webcamFloat__label">WEBCAM</span>
+        <h1 className="stream__title">
+          Hey, I’m <span className="accent">Your Name</span>.
+        </h1>
 
-            <div className="webcam__placeholder">
-              <div className="webcam__avatar">NS</div>
-              <p className="webcam__text">streamer mode: on</p>
-            </div>
-          </div>
+        <p className="stream__intro">
+          I build clean, modern web apps with React — obsessed with smooth
+          interactions, soft UI, and intentional design.
+        </p>
 
-          {/* Bottom widgets */}
-          <footer className="home__widgets">
-            <Panel>
-              <div className="widgets">
-                <a className="widget" href="#projects">
-                  Projects
-                </a>
-                <a className="widget" href="#contact">
-                  Contact
-                </a>
-                <a
-                  className="widget"
-                  href="https://github.com/"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  GitHub
-                </a>
-                <a
-                  className="widget"
-                  href="https://linkedin.com/"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  LinkedIn
-                </a>
-              </div>
-            </Panel>
-          </footer>
+        <div className="stream__actions">
+          <a className="btn primary">View Projects</a>
+          <a className="btn ghost">Contact</a>
         </div>
 
-        {/* RIGHT SIDE: chat */}
-        <aside className="layout__chat">
-          <section className="home__chat">
-            <Panel title="JOIN CHAT">
-              <About />
-            </Panel>
-          </section>
-        </aside>
-      </div>
+        <div className="stream__links">
+          <a>Projects</a>
+          <a>GitHub</a>
+          <a>LinkedIn</a>
+        </div>
+      </section>
 
-      {/* Hidden sections for later scrolling (optional) */}
-      <div className="home__sections">
-        <section id="projects">
-          <Projects />
-        </section>
+      {/* CHAT */}
+      <aside className="chat">
+        <div className="chat__header">
+          <span>JOIN CHAT</span>
+          <span className="status">streamer mode: on</span>
+        </div>
 
-        <section id="contact">
-          <Contact />
-        </section>
-      </div>
+        <div className="chat__body">
+          <div className="chat__card">
+            <h3>About</h3>
+            <p>
+              Confident frontend developer with a strong eye for UI, layout
+              logic, and interaction design. Open to junior / graduate roles.
+            </p>
+          </div>
+        </div>
+      </aside>
     </main>
   );
 }
