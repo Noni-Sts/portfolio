@@ -1,13 +1,12 @@
-import { useState } from "react";
-import StartingSoon from "./pages/StartingSoon";
-import Home from "./pages/Home";
+import { Routes, Route } from "react-router-dom";
+import StartingSoon from "./pages/StartingSoon.jsx";
+import Home from "./pages/Home.jsx";
 
 export default function App() {
-  const [entered, setEntered] = useState(false);
-
   return (
-    <div className={`site ${entered ? "site--enter" : ""}`}>
-      {!entered ? <StartingSoon onEnter={() => setEntered(true)} /> : <Home />}
-    </div>
+    <Routes>
+      <Route path="/" element={<StartingSoon />} />
+      <Route path="/home" element={<Home />} />
+    </Routes>
   );
 }

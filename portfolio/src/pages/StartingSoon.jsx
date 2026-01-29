@@ -1,13 +1,25 @@
-export default function StartingSoon({ onEnter }) {
+import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
+import "../styles/StartingSoon.css";
+
+export default function StartingSoon() {
+  const navigate = useNavigate();
+
   return (
-    <main className="overlay">
+    <motion.main
+      className="overlay"
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -10 }}
+      transition={{ duration: 0.45 }}
+    >
       {/* Background atmosphere layers */}
       <div className="overlay__bg" aria-hidden="true" />
       <div className="overlay__vignette" aria-hidden="true" />
       <div className="overlay__noise" aria-hidden="true" />
       <div className="overlay__scanlines" aria-hidden="true" />
 
-      {/* Floating mini hearts (MUST be outside frame so they sit in the scene) */}
+      {/* Floating mini hearts */}
       <div className="overlay__hearts" aria-hidden="true">
         <span className="heart heart--1" />
         <span className="heart heart--2" />
@@ -18,19 +30,12 @@ export default function StartingSoon({ onEnter }) {
         <span className="heart heart--7" />
       </div>
 
-      {/* Frame = stream overlay */}
-      <section className="frame" aria-label="Starting soon overlay frame">
-        {/* Corner brackets */}
-        <span className="frame__corner frame__corner--tl" aria-hidden="true" />
-        <span className="frame__corner frame__corner--tr" aria-hidden="true" />
-        <span className="frame__corner frame__corner--bl" aria-hidden="true" />
-        <span className="frame__corner frame__corner--br" aria-hidden="true" />
-
-        {/* Top HUD row */}
+      {/* Frame */}
+      <section className="frame">
         <header className="hud">
           <div className="hud__left">
             <span className="hud__pill">
-              <span className="hud__dot" aria-hidden="true" />
+              <span className="hud__dot" />
               LIVE SOON
             </span>
             <span className="hud__label">Portfolio Stream</span>
@@ -43,7 +48,6 @@ export default function StartingSoon({ onEnter }) {
           </div>
         </header>
 
-        {/* Main content block */}
         <div className="content">
           <h1 className="content__title">Starting Soon</h1>
 
@@ -51,9 +55,8 @@ export default function StartingSoon({ onEnter }) {
             Warming up the site… keep your notepad open for contact details
           </p>
 
-          {/* Timer + status */}
           <div className="status">
-            <div className="timer" aria-label="Countdown timer">
+            <div className="timer">
               <span className="timer__digits">00:00:00</span>
             </div>
 
@@ -64,8 +67,11 @@ export default function StartingSoon({ onEnter }) {
             </div>
           </div>
 
-          {/* CTA */}
-          <button className="cta" type="button" onClick={onEnter}>
+          <button
+            className="cta"
+            type="button"
+            onClick={() => navigate("/home")}
+          >
             Enter Stream
           </button>
 
@@ -74,13 +80,12 @@ export default function StartingSoon({ onEnter }) {
           </p>
         </div>
 
-        {/* Bottom “overlay footer line” */}
         <footer className="footer">
           <span className="footer__text">Press ENTER to continue</span>
-          <span className="footer__divider" aria-hidden="true" />
+          <span className="footer__divider" />
           <span className="footer__text">Loading modules…</span>
         </footer>
       </section>
-    </main>
+    </motion.main>
   );
 }
