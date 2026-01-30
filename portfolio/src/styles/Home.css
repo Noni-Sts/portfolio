@@ -1,0 +1,34 @@
+.home {
+  min-height: 100vh;
+  padding: 3rem 2rem;
+  background: #0a0a0c;
+  color: #f5efe6;
+  font-family: system-ui, sans-serif;
+}
+
+.hero {
+  max-width: 700px;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  opacity: 0.8;
+  margin-bottom: 1.5rem;
+}
+
+.hero__actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.hero__actions a {
+  padding: 0.6rem 1rem;
+  border: 1px solid #f5efe6;
+  text-decoration: none;
+  color: #f5efe6;
+  border-radius: 6px;
+}
