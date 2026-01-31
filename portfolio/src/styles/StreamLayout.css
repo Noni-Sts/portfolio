@@ -1,0 +1,16 @@
+.stream-layout {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  min-height: 100vh;
+}
+
+.stream-main {
+  background: #111;
+  padding: 2rem;
+}
+
+.stream-chat {
+  background: #1a1a1a;
+  padding: 1rem;
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+}
