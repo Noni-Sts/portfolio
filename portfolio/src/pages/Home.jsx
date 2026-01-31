@@ -5,21 +5,21 @@ import "../styles/StreamLayout.css";
 export default function Home() {
   return (
     <main className="home">
-      <section className="hero">
-        <h1>Hi, I’m Noni </h1>
-        <p>
-          Frontend developer in progress. Building interactive, thoughtful web
-          experiences.
+      <section className="stream-main">
+        <h1 className="stream-title">Hey, I’m Noni.</h1>
+
+        <p className="stream-subtitle">
+          Frontend developer · Career changer · Builder of cool things
         </p>
 
-        <StreamLayout>
-          <h1>Main Stream Area</h1>
-          <p>This will become the portfolio screen.</p>
-        </StreamLayout>
+        <p className="stream-description">
+          I learn by making fun projects — clean UI, thoughtful interactions,
+          and a bit of personality.
+        </p>
 
-        <div className="hero__actions">
-          <a href="#projects">View Projects</a>
-          <a href="#contact">Contact</a>
+        <div className="stream-actions">
+          <button className="btn-primary">View Projects</button>
+          <button className="btn-secondary">Contact</button>
         </div>
       </section>
     </main>
