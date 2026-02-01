@@ -25,3 +25,12 @@ export default function Home() {
     </main>
   );
 }
+
+{
+  /* 
+  TODO:
+  - Main stream hero (intro + CTA)
+  - Projects section (cards or panels)
+  - Chat panel (read-only, aesthetic)
+*/
+}
