@@ -1,35 +1,34 @@
+import StreamLayout from "./StreamLayout";
 import "../styles/Home.css";
-import "../styles/StreamLayout.css";
 
 export default function Home() {
   return (
-    <main className="home">
-      <section className="stream-main">
-        <h1 className="stream-title">Hey, I’m Noni.</h1>
+    <StreamLayout>
+      <section className="hero">
+        <div className="hero__hud">
+          <span className="hero__pill">
+            <span className="hero__dot" />
+            ONLINE
+          </span>
+          <span className="hero__tag">Frontend Dev • Career Changer</span>
+        </div>
 
-        <p className="stream-subtitle">
-          Frontend developer · Career changer · Builder of cool things
-        </p>
+        <h1 className="hero__title">
+          Hey, I’m <span className="hero__accent">Noni.</span>
+        </h1>
 
-        <p className="stream-description">
+        <p className="hero__text">
           I learn by making fun projects — clean UI, thoughtful interactions,
           and a bit of personality.
         </p>
 
-        <div className="stream-actions">
-          <button className="btn-primary">View Projects</button>
-          <button className="btn-secondary">Contact</button>
+        <div className="hero__actions">
+          <button className="hero__btn hero__btn--primary">
+            View Projects
+          </button>
+          <button className="hero__btn hero__btn--ghost">Contact</button>
         </div>
       </section>
-    </main>
+    </StreamLayout>
   );
-}
-
-{
-  /* 
-  TODO:
-  - Main stream hero (intro + CTA)
-  - Projects section (cards or panels)
-  - Chat panel (read-only, aesthetic)
-*/
 }
