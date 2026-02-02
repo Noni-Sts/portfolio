@@ -1,5 +1,4 @@
 import "../styles/Home.css";
-import StreamLayout from "../pages/StreamLayout";
 import "../styles/StreamLayout.css";
 
 export default function Home() {

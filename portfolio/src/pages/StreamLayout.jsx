@@ -1,3 +1,4 @@
+import "../styles/StreamLayout.css";
 export default function StreamLayout({ children }) {
   return (
     <div className="stream-layout">
