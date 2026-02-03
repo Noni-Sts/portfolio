@@ -79,12 +79,6 @@ export default function StartingSoon() {
             (This button will scroll to the main site soon 👀)
           </p>
         </div>
-
-        <footer className="footer">
-          <span className="footer__text">Press ENTER to continue</span>
-          <span className="footer__divider" />
-          <span className="footer__text">Loading modules…</span>
-        </footer>
       </section>
     </motion.main>
   );

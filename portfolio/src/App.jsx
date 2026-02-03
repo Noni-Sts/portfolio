@@ -7,6 +7,7 @@ export default function App() {
   return (
     <Routes>
       <Route path="/" element={<StartingSoon />} />
+
       <Route
         path="/home"
         element={

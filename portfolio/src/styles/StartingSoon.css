@@ -60,12 +60,12 @@ body {
    This is the key: it's a SCENE, not a centered card.
    ========================================================= */
 .overlay {
-  min-height: 100svh;
+  height: 100svh; /* hard lock */
   display: grid;
   place-items: center;
   position: relative;
   overflow: hidden;
-  padding: clamp(1rem, 3vw, 2.5rem);
+  padding: clamp(0.75rem, 2vw, 1.75rem); /* slightly smaller */
 }
 
 .overlay__bg {
@@ -303,9 +303,10 @@ body {
   flex-direction: column;
 
   width: min(96rem, 100%);
-  min-height: min(46rem, 88vh);
+  max-height: calc(100svh - 3rem);
   padding: clamp(1.5rem, 3vw, 3rem);
   border-radius: clamp(1.25rem, 2vw, 2rem);
+  overflow: hidden;
 
   /* SUPER TRANSLUCENT */
   background: rgba(255, 255, 255, 0.08); /* VERY transparent */

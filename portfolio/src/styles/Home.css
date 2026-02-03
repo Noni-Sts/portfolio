@@ -14,12 +14,10 @@
   border-radius: 1.9rem;
 
   /* glass WINDOW, not frosted */
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(245, 239, 230, 0.35);
-
-  box-shadow:
-    0 2.2rem 4.5rem rgba(0, 0, 0, 0.35),
-    inset 0 0 0 1px rgba(245, 239, 230, 0.12);
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0;
 }
 
 /* HUD ROW */
