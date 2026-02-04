@@ -1,31 +1,41 @@
-import StreamStage from "../sections/StreamStage";
 import "../styles/StreamLayout.css";
+import StreamDescription from "../sections/StreamDescription";
 
 export default function StreamLayout() {
   return (
-    <div className="overlay">
-      <div className="overlay__bg" />
-      <div className="overlay__vignette" />
-      <div className="overlay__noise" />
-      <div className="overlay__scanlines" />
+    <>
+      {/* FIXED STREAM AREA */}
+      <section className="stream-page">
+        <div className="stream-shell">
+          <div className="stream-stage">
+            <div className="stage-inner">
+              <div className="stream-hud">
+                <span className="live-dot" />
+                <span className="stream-title">Noni • Live Coding</span>
+              </div>
 
-      <div className="overlay__hearts">
-        <span className="heart heart--1" />
-        <span className="heart heart--2" />
-        <span className="heart heart--3" />
-      </div>
+              <div className="stream-canvas">
+                <p className="stage-label">LIVE STREAM</p>
+              </div>
 
-      <main className="frame">
-        <div className="stream-grid">
-          <section className="stream-stage">
-            <StreamStage />
-          </section>
+              <div className="webcam-frame">CAM</div>
+
+              <footer className="stream-footer">
+                <span>✨ New Follower</span>
+                <span>💖 Subscribers</span>
+                <span>💸 Donations</span>
+              </footer>
+            </div>
+          </div>
 
           <aside className="stream-chat">
-            <div className="chat-placeholder">Chat coming soon 💬</div>
+            <p>Chat coming soon 💬</p>
           </aside>
         </div>
-      </main>
-    </div>
+      </section>
+
+      {/* SCROLLABLE BELOW-THE-STREAM CONTENT */}
+      <StreamDescription />
+    </>
   );
 }
