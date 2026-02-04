@@ -21,30 +21,88 @@
     inset 0 1px 0 rgba(255, 255, 255, 0.45);
 }
 
-/* grid inside the frame */
 .stream-grid {
   height: 100%;
   display: grid;
-  grid-template-columns: 1fr minmax(18rem, 22rem);
-  gap: 1.25rem;
+  grid-template-columns: 1fr 22rem;
+  gap: 1.5rem;
 }
 
-/* main content area */
-.stream-main {
+/* LEFT = STREAM STAGE (NO CARD LOOK) */
+.stream-stage {
+  position: relative;
+  padding: 3rem;
   border-radius: 1.6rem;
-  padding: 2rem;
 
-  background: rgba(255, 255, 255, 0.12);
-  border: 1px solid rgba(255, 255, 255, 0.25);
+  /* subtle stage tint only */
+  background: rgba(255, 255, 255, 0.625);
 }
 
-/* chat column */
+/* CHAT STAYS BOXED (LIKE REAL STREAMS) */
 .stream-chat {
   border-radius: 1.6rem;
   padding: 1rem;
 
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.625);
   border: 1px solid rgba(255, 255, 255, 0.22);
+}
+
+/* LEFT: main screen 
+.stream-main {
+  border-radius: 1.6rem;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  overflow: hidden;
+}*/
+
+/*Stage text and design*/
+
+.stage {
+  max-width: 48rem;
+}
+
+.stage__hud {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.8rem;
+}
+
+.stage__pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.stage__dot {
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 50%;
+  background: #7cffc4;
+}
+
+.stage__title {
+  font-size: clamp(2.6rem, 4vw, 3.8rem);
+  margin: 0;
+}
+
+.stage__text {
+  margin-top: 0.9rem;
+  max-width: 52ch;
+  color: rgba(38, 38, 48, 0.75);
+}
+
+.stage__actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.8rem;
 }
 
 /* placeholder so it doesn't feel empty */
