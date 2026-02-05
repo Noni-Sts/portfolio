@@ -93,11 +93,14 @@
 }
 
 .live-dot {
-  width: 0.5rem;
-  height: 0.5rem;
+  width: 0.45rem;
+  height: 0.45rem;
   border-radius: 50%;
   background: #ff6b9d;
-  box-shadow: 0 0 10px rgba(255, 107, 157, 0.8);
+
+  box-shadow:
+    0 0 6px rgba(255, 107, 157, 0.8),
+    0 0 12px rgba(255, 107, 157, 0.5);
 }
 
 .stream-canvas {
@@ -107,9 +110,11 @@
 }
 
 .stage-label {
-  font-size: 0.85rem;
-  letter-spacing: 0.2em;
-  opacity: 0.6;
+  font-size: 0.7rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+
+  color: rgba(40, 40, 55, 0.55);
 }
 
 .webcam-frame {
@@ -167,15 +172,21 @@
   left: 0;
 
   width: 100%;
-  padding: 0.75rem 2rem;
+  padding: 0.65rem 2rem;
 
   display: flex;
   justify-content: space-between;
 
-  background: rgba(255, 255, 255, 0.35);
-  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(12px);
 
-  font-size: 0.75rem;
+  font-size: 0.65rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.stream-footer span {
+  opacity: 0.8;
 }
 
 .stream-description {
