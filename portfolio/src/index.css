@@ -10,6 +10,16 @@ body,
 }
 
 body {
-  background: #0a0a0c;
-  font-family: Inter, system-ui, sans-serif;
+  background:
+    radial-gradient(
+      1200px 600px at 20% 10%,
+      rgba(255, 214, 230, 0.55),
+      transparent 60%
+    ),
+    radial-gradient(
+      1000px 700px at 80% 20%,
+      rgba(210, 230, 255, 0.55),
+      transparent 60%
+    ),
+    #f6f4f7;
 }
