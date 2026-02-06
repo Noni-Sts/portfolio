@@ -99,8 +99,31 @@
   background: #ff6b9d;
 
   box-shadow:
-    0 0 6px rgba(255, 107, 157, 0.8),
-    0 0 12px rgba(255, 107, 157, 0.5);
+    0 0 6px rgba(255, 107, 157, 0.7),
+    0 0 12px rgba(255, 107, 157, 0.4);
+
+  animation: livePulse 1.8s ease-in-out infinite;
+}
+
+@keyframes livePulse {
+  0% {
+    transform: scale(1);
+    box-shadow:
+      0 0 6px rgba(255, 107, 157, 0.6),
+      0 0 12px rgba(255, 107, 157, 0.35);
+  }
+  50% {
+    transform: scale(1.25);
+    box-shadow:
+      0 0 10px rgba(255, 107, 157, 0.9),
+      0 0 20px rgba(255, 107, 157, 0.55);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow:
+      0 0 6px rgba(255, 107, 157, 0.6),
+      0 0 12px rgba(255, 107, 157, 0.35);
+  }
 }
 
 .stream-canvas {
