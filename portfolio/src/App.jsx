@@ -32,11 +32,11 @@ export default function App() {
 
       for (let i = 0; i < 2; i++) {
         particles.push({
-          x: mouse.x,
-          y: mouse.y,
+          x: mouse.x + (Math.random() - 0.5) * 2,
+          y: mouse.y + (Math.random() - 0.5) * 2,
           vx: (Math.random() - 0.5) * 0.6,
           vy: Math.random() * -0.6,
-          size: Math.random() * 2 + 1,
+          size: Math.random() * 2 + 1.5,
           alpha: 1,
           color: colors[Math.floor(Math.random() * colors.length)],
         });
@@ -59,8 +59,8 @@ export default function App() {
         ctx.beginPath();
         ctx.fillStyle = p.color.replace("0.", `${p.alpha}`);
         ctx.shadowColor = p.color;
-        ctx.shadowBlur = 8;
-        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        ctx.shadowBlur = 16; // 🔥 stronger glow
+        ctx.arc(p.x, p.y, p.size + 0.5, 0, Math.PI * 2);
         ctx.fill();
       });
 
