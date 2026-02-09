@@ -1,7 +1,7 @@
 import "../styles/StreamLayout.css";
 import StreamDescription from "../sections/StreamDescription";
 
-export default function StreamLayout() {
+export default function StreamLayout({ children, onToggleTheme, theme }) {
   return (
     <>
       {/* FIXED STREAM AREA */}
