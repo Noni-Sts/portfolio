@@ -12,19 +12,23 @@ export default function App() {
     document.body.classList.toggle("dark", dark);
   }, [dark]);
 
+  useEffect(() => {
+    if (import.meta.env.PROD) {
+      console.log(
+        "%c👀 Looking for loot?",
+        "color: hotpink; font-size: 16px; font-weight: bold;",
+      );
+      console.log(
+        "%cThis code drops only after you talk to me 💖",
+        "color: plum;",
+      );
+    }
+  }, []);
+
   return (
     <>
       {/* GLOBAL THEME TOGGLE */}
-      <button
-        className="theme-toggle"
-        onClick={() => setDark((d) => !d)}
-        style={{
-          position: "fixed",
-          top: "1rem",
-          left: "1rem",
-          zIndex: 9999,
-        }}
-      >
+      <button className="theme-toggle" onClick={() => setDark((d) => !d)}>
         {dark ? "🌙 Dark" : "🌸 Light"}
       </button>
 
