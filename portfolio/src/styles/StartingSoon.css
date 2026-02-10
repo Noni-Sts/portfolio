@@ -662,13 +662,17 @@ body.dark .heart {
     transform 120ms ease;
 }
 
-.theme-toggle:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 0 14px rgba(255, 182, 193, 0.45);
+/* default (stream page – top of chat later) */
+.theme-toggle {
+  position: fixed;
+  z-index: 100;
+  top: 1rem;
+  left: 1rem;
 }
 
-/* placement for Starting Soon */
-.theme-toggle--starting {
+/* starting soon variant */
+body.starting-soon .theme-toggle {
+  top: auto;
   bottom: 1.25rem;
   left: 1.25rem;
 }

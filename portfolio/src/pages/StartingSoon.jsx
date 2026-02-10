@@ -1,9 +1,15 @@
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 import "../styles/StartingSoon.css";
 
-export default function StartingSoon() {
+export default function StartingSoon({ dark, onToggleTheme }) {
   const navigate = useNavigate();
+
+  useEffect(() => {
+    document.body.classList.add("starting-soon");
+    return () => document.body.classList.remove("starting-soon");
+  }, []);
 
   return (
     <motion.main
