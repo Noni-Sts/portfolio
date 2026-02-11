@@ -81,9 +81,7 @@ export default function StartingSoon({ dark, onToggleTheme }) {
             Enter Stream
           </button>
 
-          <p className="hint">
-            (This button will scroll to the main site soon 👀)
-          </p>
+          <p className="hint">taking a breath before going live ✨</p>
         </div>
       </section>
     </motion.main>
