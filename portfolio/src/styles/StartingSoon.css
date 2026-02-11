@@ -665,16 +665,12 @@ body.dark .heart {
 }
 
 .starting-soon .theme-toggle {
-  left: 2.25rem;
+  left: 5.5rem;
   bottom: 2.25rem;
   top: auto;
 }
 
 .theme-toggle--starting {
-  bottom: 1.25rem;
-  left: 1.25rem;
-  top: auto;
-
   box-shadow:
     0 0 18px rgba(255, 182, 193, 0.35),
     inset 0 1px 0 rgba(255, 255, 255, 0.4);
