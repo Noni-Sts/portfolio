@@ -440,6 +440,7 @@ body.dark .heart {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
+  animation: livePulse 3.2s ease-in-out infinite;
 
   padding: 0.5rem 0.75rem;
   border-radius: 999px;
@@ -450,6 +451,18 @@ body.dark .heart {
 
   background: rgba(255, 182, 193, 0.35);
   border: 1px solid rgba(255, 182, 193, 0.6);
+}
+
+@keyframes livePulse {
+  0% {
+    box-shadow: 0 0 0 rgba(255, 182, 193, 0);
+  }
+  50% {
+    box-shadow: 0 0 18px rgba(255, 182, 193, 0.35);
+  }
+  100% {
+    box-shadow: 0 0 0 rgba(255, 182, 193, 0);
+  }
 }
 
 .hud__dot {
