@@ -1,5 +1,6 @@
 import "../styles/StreamLayout.css";
 import StreamDescription from "../sections/StreamDescription";
+import Chat from "../sections/Chat";
 
 export default function StreamLayout({ children, onToggleTheme, theme }) {
   return (
@@ -28,9 +29,13 @@ export default function StreamLayout({ children, onToggleTheme, theme }) {
             </div>
           </div>
 
-          <aside className="stream-chat">
-            <p>Chat coming soon 💬</p>
-          </aside>
+          <div className="stream-layout">
+            <main className="stream-main">{children}</main>
+
+            <aside className="stream-chat">
+              <Chat />
+            </aside>
+          </div>
         </div>
       </section>
 
