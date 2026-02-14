@@ -5,7 +5,7 @@ export default function Chat() {
   return (
     <aside className="chat">
       <div className="chat__messages">
-        <ChatBubble text="👋 hey, I’m Noni" />
+        <ChatBubble text="👋 Hey, I’m Noni" />
         <ChatBubble text="💻 self-taught dev + bootcamp grad" />
         <ChatBubble text="🌸 portfolio in progress…" />
       </div>
