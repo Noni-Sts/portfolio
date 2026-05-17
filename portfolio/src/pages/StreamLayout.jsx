@@ -16,7 +16,79 @@ export default function StreamLayout({ children, onToggleTheme, theme }) {
               </div>
 
               <div className="stream-canvas">
-                <p className="stage-label">LIVE STREAM</p>
+                {/* Fake terminal/code window */}
+                <div className="code-window">
+                  {/* Top bar */}
+                  <div className="code-window__topbar">
+                    <span />
+                    <span />
+                    <span />
+                  </div>
+
+                  {/* Fake code content */}
+                  <div className="code-window__body">
+                    <p>
+                      <span className="code-pink">const</span> dev = {"{"}
+                    </p>
+
+                    <p className="code-indent">
+                      name: <span className="code-yellow">"Noni"</span>,
+                    </p>
+
+                    <p className="code-indent">
+                      role:{" "}
+                      <span className="code-blue">"Frontend Developer"</span>,
+                    </p>
+
+                    <p className="code-indent">
+                      background: [
+                      <span className="code-yellow">"bootcamp grad"</span>,
+                      <span className="code-yellow">"part self-taught"</span>
+                      ],
+                    </p>
+
+                    <p className="code-indent">
+                      poweredBy: [<span className="code-yellow">"tea"</span>,
+                      <span className="code-yellow">"panic"</span>]
+                    </p>
+
+                    <p>{"};"}</p>
+
+                    <p>
+                      <span className="code-pink">const</span> currentlyBuilding
+                      = [
+                    </p>
+
+                    <p className="code-indent">
+                      <span className="code-yellow">"internet garden"</span>,
+                    </p>
+
+                    <p className="code-indent">
+                      <span className="code-yellow">"portfolio stream UI"</span>
+                      ,
+                    </p>
+
+                    <p className="code-indent">
+                      <span className="code-yellow">
+                        "interactive web experiences"
+                      </span>
+                    </p>
+
+                    <p>];</p>
+
+                    <p className="typing-line">
+                      &gt; booting portfolio experience...
+                    </p>
+
+                    <p className="typing-line typing-line--delay">
+                      &gt; compiling cozy vibes ✨
+                    </p>
+
+                    <p className="typing-line typing-line--delay-2">
+                      &gt; loading caffeine reserves ☕
+                    </p>
+                  </div>
+                </div>
               </div>
 
               <div className="webcam-frame">CAM</div>

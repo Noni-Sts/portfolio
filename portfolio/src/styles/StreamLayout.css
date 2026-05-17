@@ -229,3 +229,92 @@
   max-width: 60ch;
   line-height: 1.7;
 }
+
+.code-window {
+  width: min(48rem, 82%);
+  min-height: 18rem;
+
+  border-radius: 2rem;
+
+  background: rgb(36, 36, 44);
+
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.35),
+    0 0 40px rgba(255, 182, 193, 0.08);
+
+  overflow: hidden;
+}
+
+.code-window__topbar {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+
+  padding: 1rem 1.2rem;
+
+  background: rgba(255, 255, 255, 0.04);
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.code-window__topbar span {
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 999px;
+
+  background: rgba(255, 255, 255, 0.22);
+}
+
+.code-window__body {
+  padding: 1.4rem;
+
+  font-family: monospace;
+  font-size: 0.95rem;
+
+  text-align: left;
+
+  color: rgba(235, 235, 245, 0.92);
+}
+
+.code-window__content {
+  padding: 2rem;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+
+  font-family: "JetBrains Mono", monospace;
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+.code-pink {
+  color: rgb(255, 182, 193);
+}
+
+.code-yellow {
+  color: rgb(255, 230, 160);
+}
+
+.code-blue {
+  color: rgb(173, 216, 230);
+}
+
+.code-indent {
+  padding-left: 1.5rem;
+}
+.typing-line {
+  opacity: 0;
+
+  animation: terminalFade 0.8s ease forwards;
+}
+
+.typing-line--delay {
+  animation-delay: 1.4s;
+}
+
+@keyframes terminalFade {
+  to {
+    opacity: 1;
+  }
+}
