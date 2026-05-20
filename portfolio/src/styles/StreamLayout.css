@@ -142,11 +142,11 @@
 
 .webcam-frame {
   position: absolute;
-  bottom: 1.25rem;
-  left: 1.25rem;
+  bottom: 3.5rem;
+  left: 1.5rem;
 
-  width: 16rem;
-  height: 9rem;
+  width: 13rem;
+  height: 7.5rem;
 
   border-radius: 1.2rem;
 
@@ -231,8 +231,8 @@
 }
 
 .code-window {
-  width: min(48rem, 82%);
-  min-height: 18rem;
+  width: min(42rem, 74%);
+  min-height: 16rem;
 
   border-radius: 2rem;
 
@@ -268,7 +268,7 @@
 .code-window__body {
   padding: 1.4rem;
 
-  font-family: monospace;
+  font-family: "JetBrains Mono", monospace;
   font-size: 0.95rem;
 
   text-align: left;
@@ -290,14 +290,20 @@
 
 .code-pink {
   color: rgb(255, 182, 193);
+
+  text-shadow: 0 0 10px rgba(255, 182, 193, 0.35);
 }
 
 .code-yellow {
   color: rgb(255, 230, 160);
+
+  text-shadow: 0 0 10px rgba(255, 230, 160, 0.2);
 }
 
 .code-blue {
   color: rgb(173, 216, 230);
+
+  text-shadow: 0 0 10px rgba(173, 216, 230, 0.2);
 }
 
 .code-indent {
