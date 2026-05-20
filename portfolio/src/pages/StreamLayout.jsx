@@ -1,6 +1,7 @@
 import "../styles/StreamLayout.css";
 import StreamDescription from "../sections/StreamDescription";
 import Chat from "../sections/Chat";
+import wallpaper from "../assets/images/wallpaper.jpg";
 
 export default function StreamLayout({ children, onToggleTheme, theme }) {
   return (
@@ -16,6 +17,12 @@ export default function StreamLayout({ children, onToggleTheme, theme }) {
               </div>
 
               <div className="stream-canvas">
+                <div
+                  className="desktop-wallpaper"
+                  style={{
+                    backgroundImage: `url(${wallpaper})`,
+                  }}
+                />
                 {/* Fake terminal/code window */}
                 <div className="code-window">
                   {/* Top bar */}

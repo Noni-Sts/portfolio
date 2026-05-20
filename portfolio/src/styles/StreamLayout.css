@@ -123,8 +123,30 @@
 
 .stream-canvas {
   height: 100%;
-  display: grid;
-  place-items: center;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding-left: 6rem;
+  padding-bottom: 3rem;
+}
+
+.desktop-wallpaper {
+  position: absolute;
+  inset: 0;
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  opacity: 0.38;
+
+  transform: scale(1);
+
+  filter: saturate(1.05) brightness(0.95);
+
+  z-index: 0;
 }
 
 .stage-label {
@@ -233,6 +255,8 @@
 .code-window {
   width: min(42rem, 74%);
   min-height: 16rem;
+  position: relative;
+  z-index: 2;
 
   border-radius: 2rem;
 
