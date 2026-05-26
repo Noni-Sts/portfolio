@@ -1,70 +1,98 @@
 import ChatBubble from "../components/ChatBubble";
 import "../styles/Chat.css";
 
-/* 
-  Fake livestream chat messages
-  Makes the page feel alive/community-driven
+/*
+  Fake livestream chat data
+  -----------------------------------
+  type:
+  - "user" = regular chatter
+  - "mod" = centered stream notice
 */
+
 const messages = [
   {
     user: "pixelbun",
     text: "the cozy vibes are immaculate 🌸",
+    type: "user",
   },
 
   {
     user: "uiwizard",
     text: "wait this stream layout is actually so cute",
+    type: "user",
+  },
+
+  {
+    user: "MOD",
+    text: "🌸 welcome to the stream chat",
+    type: "mod",
   },
 
   {
     user: "teacoder",
     text: "self-taught + bootcamp grind is REAL",
+    type: "user",
   },
 
   {
     user: "gardenbyte",
     text: "internet garden project sounds adorable 😭",
+    type: "user",
   },
 
   {
     user: "sleepdepriveddev",
     text: "powered by tea and panic is too relatable",
+    type: "user",
   },
 ];
 
 export default function Chat() {
   return (
     <aside className="chat">
-      {/* CHAT MESSAGE AREA */}
+      {/* TOP BAR */}
+      <div className="chat__top">
+        <span className="chat__heading">STREAM CHAT</span>
+
+        {/* 
+          Placeholder area for future theme toggle
+          You can move your dark mode button here later
+        */}
+        <div className="chat__status">LIVE</div>
+      </div>
+
+      {/* CHAT MESSAGES */}
       <div className="chat__messages">
         {messages.map((msg, index) => (
           <div
+            key={index}
             className="chat__message-wrap"
-            key={msg.user}
             style={{
-              /* 
-                Each message appears slightly later
-                Gives "live chat popping in" effect
+              /*
+                Slower staggered appearance
+                feels more livestream-y
               */
-              animationDelay: `${index * 1.2}s`,
+              animationDelay: `${index * 2.2}s`,
             }}
           >
-            {/* Pass BOTH username + text */}
-            <ChatBubble user={msg.user} text={msg.text} />
+            <ChatBubble
+              user={msg.user}
+              text={msg.text}
+              type={msg.type}
+              index={index}
+            />
           </div>
         ))}
       </div>
 
-      {/* FAKE CHAT INPUT */}
+      {/* INPUT BAR */}
       <div className="chat__input">
-        {/* Animated typing dots */}
         <span className="typing-dots">
           <i></i>
           <i></i>
           <i></i>
         </span>
 
-        {/* Disabled because it's decorative for now */}
         <input type="text" placeholder="Chat opens soon…" disabled />
       </div>
     </aside>
