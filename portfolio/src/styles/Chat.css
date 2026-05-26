@@ -10,21 +10,59 @@
   display: flex;
   flex-direction: column;
 
-  /* LIGHT MODE PANEL */
+  /* LIGHT MODE */
   background: rgba(255, 255, 255, 0.32);
 
   border-left: 1px solid rgba(255, 255, 255, 0.18);
 
   backdrop-filter: blur(14px);
+
+  overflow: hidden;
 }
 
-/* DARK MODE PANEL */
+/* DARK MODE */
 body.dark .chat {
   background: rgba(0, 0, 0, 0.35);
 }
 
 /* =========================================================
-   MESSAGE AREA
+   CHAT TOP BAR
+   ========================================================= */
+
+.chat__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0.85rem 1rem;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.chat__heading {
+  font-size: 0.72rem;
+
+  letter-spacing: 0.12em;
+
+  font-weight: 700;
+
+  color: rgba(255, 105, 180, 0.9);
+}
+
+.chat__status {
+  font-size: 0.65rem;
+
+  padding: 0.25rem 0.5rem;
+
+  border-radius: 999px;
+
+  background: rgba(255, 182, 193, 0.22);
+
+  color: var(--ink);
+}
+
+/* =========================================================
+   CHAT MESSAGE AREA
    ========================================================= */
 
 .chat__messages {
@@ -35,12 +73,27 @@ body.dark .chat {
   display: flex;
   flex-direction: column;
 
-  gap: 0.75rem;
+  gap: 1rem;
 
-  /* pushes messages lower like real chat */
-  justify-content: flex-end;
+  /*
+    START FROM TOP
+    feels more stream-like
+  */
+  justify-content: flex-start;
 
   overflow: hidden;
+}
+
+/* =========================================================
+   MESSAGE WRAPPER
+   ========================================================= */
+
+.chat__message-wrap {
+  opacity: 0;
+
+  transform: translateY(14px);
+
+  animation: chatFloatIn 1.2s ease forwards;
 }
 
 /* =========================================================
@@ -59,16 +112,31 @@ body.dark .chat {
 
   border-radius: 1rem;
 
-  background: rgba(255, 255, 255, 0.22);
+  background: rgba(255, 255, 255, 0.2);
 
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(10px);
 
   box-shadow:
     0 4px 18px rgba(0, 0, 0, 0.08),
-    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    inset 0 1px 0 rgba(255, 255, 255, 0.22);
 }
 
-/* USERNAME */
+/* SLIGHT POSITION VARIATION */
+
+.chat-bubble--left {
+  align-self: flex-start;
+}
+
+.chat-bubble--right {
+  align-self: flex-end;
+
+  transform: translateX(-0.5rem);
+}
+
+/* =========================================================
+   USERNAME
+   ========================================================= */
+
 .chat-bubble__user {
   font-size: 0.68rem;
 
@@ -79,23 +147,50 @@ body.dark .chat {
   color: rgba(255, 105, 180, 0.95);
 }
 
-/* MESSAGE TEXT */
+/* =========================================================
+   MESSAGE TEXT
+   ========================================================= */
+
 .chat-bubble__text {
   font-size: 0.78rem;
 
-  line-height: 1.4;
+  line-height: 1.45;
 
   color: var(--ink);
 }
 
 /* =========================================================
-   CHAT INPUT BAR
+   MOD MESSAGE
+   ========================================================= */
+
+.chat-bubble--mod {
+  align-self: center;
+
+  padding: 0.55rem 0.8rem;
+
+  border-radius: 999px;
+
+  background: rgba(255, 182, 193, 0.18);
+
+  border: 1px solid rgba(255, 182, 193, 0.25);
+}
+
+.chat-bubble__mod-text {
+  font-size: 0.68rem;
+
+  letter-spacing: 0.05em;
+
+  color: rgba(255, 105, 180, 0.95);
+}
+
+/* =========================================================
+   INPUT BAR
    ========================================================= */
 
 .chat__input {
   padding: 0.85rem;
 
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
 
   display: flex;
   align-items: center;
@@ -104,6 +199,7 @@ body.dark .chat {
 }
 
 /* INPUT */
+
 .chat__input input {
   flex: 1;
 
@@ -117,7 +213,6 @@ body.dark .chat {
   font-size: 0.72rem;
 }
 
-/* PLACEHOLDER */
 .chat__input input::placeholder {
   color: rgba(200, 200, 215, 0.55);
 }
@@ -128,10 +223,10 @@ body.dark .chat {
 
 .typing-dots {
   display: flex;
+
   gap: 0.18rem;
 }
 
-/* INDIVIDUAL DOT */
 .typing-dots i {
   width: 0.28rem;
   height: 0.28rem;
@@ -143,7 +238,6 @@ body.dark .chat {
   animation: dotBlink 1.4s infinite both;
 }
 
-/* delays make them pulse one-by-one */
 .typing-dots i:nth-child(2) {
   animation-delay: 0.2s;
 }
@@ -152,7 +246,10 @@ body.dark .chat {
   animation-delay: 0.4s;
 }
 
-/* typing animation */
+/* =========================================================
+   ANIMATIONS
+   ========================================================= */
+
 @keyframes dotBlink {
   0% {
     opacity: 0.2;
@@ -170,20 +267,7 @@ body.dark .chat {
   }
 }
 
-/* =========================================================
-   MESSAGE APPEAR ANIMATION
-   ========================================================= */
-
-.chat__message-wrap {
-  opacity: 0;
-
-  transform: translateY(12px);
-
-  animation: chatPop 0.7s ease forwards;
-}
-
-/* message slides upward */
-@keyframes chatPop {
+@keyframes chatFloatIn {
   to {
     opacity: 1;
     transform: translateY(0);
