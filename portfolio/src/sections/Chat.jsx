@@ -2,7 +2,10 @@ import { useEffect, useState } from "react";
 import ChatBubble from "../components/ChatBubble";
 import "../styles/Chat.css";
 
-/* FAKE CHAT MESSAGES */
+/* =========================================
+   FAKE CHAT DATA
+========================================= */
+
 const messages = [
   {
     user: "pixelbun",
@@ -34,26 +37,65 @@ const messages = [
   },
 ];
 
-export default function Chat({ dark, setDark }) {
-  /* VISIBLE CHAT STATE */
-  const [visibleMessages, setVisibleMessages] = useState(messages.slice(0, 5));
+/* =========================================
+   COMPONENT
+========================================= */
 
-  /* ROTATING CHAT EFFECT */
+export default function Chat({ dark, setDark }) {
+  /*
+    START WITH ONLY 3 MESSAGES
+    instead of dumping everything instantly
+  */
+  const [visibleMessages, setVisibleMessages] = useState(messages.slice(0, 3));
+
+  /*
+    TRACK WHICH MESSAGE COMES NEXT
+  */
+  const [messageIndex, setMessageIndex] = useState(3);
+
+  /* =========================================
+     SLOW CHAT LOOP
+  ========================================= */
+
   useEffect(() => {
     const interval = setInterval(() => {
       setVisibleMessages((prev) => {
-        const nextIndex = prev.length % messages.length;
+        /*
+          NEXT MESSAGE TO ADD
+        */
+        const nextMessage = messages[messageIndex % messages.length];
 
-        return [...prev.slice(1), messages[nextIndex]];
+        /*
+          ADD NEW MESSAGE TO BOTTOM
+        */
+        const updated = [...prev, nextMessage];
+
+        /*
+          IF TOO MANY MESSAGES:
+          remove ONLY the oldest one
+        */
+        if (updated.length > 5) {
+          updated.shift();
+        }
+
+        return updated;
       });
-    }, 4000);
+
+      /*
+        MOVE TO NEXT MESSAGE
+      */
+      setMessageIndex((prev) => prev + 1);
+    }, 3500);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [messageIndex]);
 
   return (
     <aside className="chat">
-      {/* CHAT HEADER */}
+      {/* =========================================
+          CHAT HEADER
+      ========================================= */}
+
       <div className="chat__header">
         <h3 className="chat__title">Stream Chat</h3>
 
@@ -66,7 +108,10 @@ export default function Chat({ dark, setDark }) {
         </button>
       </div>
 
-      {/* CHAT MESSAGES */}
+      {/* =========================================
+          CHAT MESSAGES
+      ========================================= */}
+
       <div className="chat__messages">
         {visibleMessages.map((msg, index) => (
           <div className="chat__message-wrap" key={`${msg.user}-${index}`}>
@@ -75,7 +120,10 @@ export default function Chat({ dark, setDark }) {
         ))}
       </div>
 
-      {/* FAKE INPUT */}
+      {/* =========================================
+          FAKE INPUT BAR
+      ========================================= */}
+
       <div className="chat__input">
         <span className="typing-dots">
           <i></i>
