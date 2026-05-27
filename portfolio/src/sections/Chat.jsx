@@ -1,91 +1,81 @@
+import { useEffect, useState } from "react";
 import ChatBubble from "../components/ChatBubble";
 import "../styles/Chat.css";
 
-/*
-  Fake livestream chat data
-  -----------------------------------
-  type:
-  - "user" = regular chatter
-  - "mod" = centered stream notice
-*/
-
+/* FAKE CHAT MESSAGES */
 const messages = [
   {
     user: "pixelbun",
     text: "the cozy vibes are immaculate 🌸",
-    type: "user",
   },
-
   {
     user: "uiwizard",
     text: "wait this stream layout is actually so cute",
-    type: "user",
   },
-
-  {
-    user: "MOD",
-    text: "🌸 welcome to the stream chat",
-    type: "mod",
-  },
-
   {
     user: "teacoder",
     text: "self-taught + bootcamp grind is REAL",
-    type: "user",
   },
-
   {
     user: "gardenbyte",
-    text: "internet garden project sounds adorable 😭",
-    type: "user",
+    text: "internet garden project sounds adorable 🌷",
   },
-
   {
     user: "sleepdepriveddev",
     text: "powered by tea and panic is too relatable",
-    type: "user",
+  },
+  {
+    user: "cssghost",
+    text: "the fake IDE window is such a good idea",
+  },
+  {
+    user: "bugfairy",
+    text: "React fighting back again? 😭",
   },
 ];
 
-export default function Chat() {
+export default function Chat({ dark, setDark }) {
+  /* VISIBLE CHAT STATE */
+  const [visibleMessages, setVisibleMessages] = useState(messages.slice(0, 5));
+
+  /* ROTATING CHAT EFFECT */
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setVisibleMessages((prev) => {
+        const nextIndex = prev.length % messages.length;
+
+        return [...prev.slice(1), messages[nextIndex]];
+      });
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <aside className="chat">
-      {/* TOP BAR */}
-      <div className="chat__top">
-        <span className="chat__heading">STREAM CHAT</span>
+      {/* CHAT HEADER */}
+      <div className="chat__header">
+        <h3 className="chat__title">Stream Chat</h3>
 
-        {/* 
-          Placeholder area for future theme toggle
-          You can move your dark mode button here later
-        */}
-        <div className="chat__status">LIVE</div>
+        {/* THEME TOGGLE */}
+        <button
+          className="chat__theme-toggle"
+          onClick={() => setDark((d) => !d)}
+        >
+          {dark ? "🌙" : "🌸"}
+        </button>
       </div>
 
       {/* CHAT MESSAGES */}
       <div className="chat__messages">
-        {messages.map((msg, index) => (
-          <div
-            key={index}
-            className="chat__message-wrap"
-            style={{
-              /*
-                Slower staggered appearance
-                feels more livestream-y
-              */
-              animationDelay: `${index * 2.2}s`,
-            }}
-          >
-            <ChatBubble
-              user={msg.user}
-              text={msg.text}
-              type={msg.type}
-              index={index}
-            />
+        {visibleMessages.map((msg, index) => (
+          <div className="chat__message-wrap" key={`${msg.user}-${index}`}>
+            <ChatBubble user={msg.user} text={msg.text} />
           </div>
         ))}
       </div>
 
-      {/* INPUT BAR */}
+      {/* FAKE INPUT */}
       <div className="chat__input">
         <span className="typing-dots">
           <i></i>
@@ -93,7 +83,7 @@ export default function Chat() {
           <i></i>
         </span>
 
-        <input type="text" placeholder="Chat opens soon…" disabled />
+        <input type="text" placeholder="Chat opens soon..." disabled />
       </div>
     </aside>
   );
