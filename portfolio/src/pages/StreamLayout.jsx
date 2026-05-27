@@ -112,7 +112,7 @@ export default function StreamLayout({ children, onToggleTheme, theme }) {
             <main className="stream-main">{children}</main>
 
             <aside className="stream-chat">
-              <Chat />
+              <Chat dark={theme} setDark={onToggleTheme} />
             </aside>
           </div>
         </div>

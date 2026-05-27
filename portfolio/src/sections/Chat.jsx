@@ -99,9 +99,9 @@ export default function Chat({ dark, setDark }) {
       <div className="chat__header">
         <h3 className="chat__title">Stream Chat</h3>
 
-        {/* THEME TOGGLE */}
+        {/* GLOBAL THEME TOGGLE */}
         <button
-          className="chat__theme-toggle"
+          className="theme-toggle theme-toggle--chat"
           onClick={() => setDark((d) => !d)}
         >
           {dark ? "🌙" : "🌸"}

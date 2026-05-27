@@ -8,16 +8,19 @@ import StreamLayout from "./pages/StreamLayout.jsx";
 export default function App() {
   const [dark, setDark] = useState(false);
 
+  /* DARK MODE BODY CLASS */
   useEffect(() => {
     document.body.classList.toggle("dark", dark);
   }, [dark]);
 
+  /* SILLY CONSOLE MESSAGE */
   useEffect(() => {
     if (import.meta.env.PROD) {
       console.log(
         "%c👀 Looking for loot?",
         "color: hotpink; font-size: 16px; font-weight: bold;",
       );
+
       console.log(
         "%cThis code drops only after you talk to me 💖",
         "color: plum;",
@@ -26,24 +29,19 @@ export default function App() {
   }, []);
 
   return (
-    <>
-      {/* GLOBAL THEME TOGGLE */}
-      <button className="theme-toggle" onClick={() => setDark((d) => !d)}>
-        {dark ? "🌙 Dark" : "🌸 Light"}
-      </button>
+    <Routes>
+      {/* STARTING SOON PAGE */}
+      <Route path="/" element={<StartingSoon />} />
 
-      <Routes>
-        <Route path="/" element={<StartingSoon />} />
-
-        <Route
-          path="/home"
-          element={
-            <StreamLayout>
-              <Home />
-            </StreamLayout>
-          }
-        />
-      </Routes>
-    </>
+      {/* MAIN STREAM PAGE */}
+      <Route
+        path="/home"
+        element={
+          <StreamLayout theme={dark} onToggleTheme={setDark}>
+            <Home />
+          </StreamLayout>
+        }
+      />
+    </Routes>
   );
 }
