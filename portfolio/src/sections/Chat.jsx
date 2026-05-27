@@ -97,14 +97,15 @@ export default function Chat({ dark, setDark }) {
       ========================================= */}
 
       <div className="chat__header">
+        {/* LEFT SIDE TITLE */}
         <h3 className="chat__title">Stream Chat</h3>
 
-        {/* GLOBAL THEME TOGGLE */}
+        {/* RIGHT SIDE THEME TOGGLE */}
         <button
           className="theme-toggle theme-toggle--chat"
           onClick={() => setDark((d) => !d)}
         >
-          {dark ? "🌙" : "🌸"}
+          {dark ? "🌙 Dark" : "🌸 Light"}
         </button>
       </div>
 
